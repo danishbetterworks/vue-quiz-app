@@ -1,12 +1,20 @@
 <script setup>
+import { defineProps } from "vue";
+const { questionStatus, barProgress } = defineProps([
+  "questionStatus",
+  "barProgress",
+]);
 </script>
 
 <template>
   <div>
     <header>
-      <h4>Question 1/3</h4>
+      <h4>Question {{ questionStatus }}</h4>
       <div class="bar">
-        <div class="completed"></div>
+        <div
+          class="completed"
+          :style="{width:barProgress}"
+        ></div>
       </div>
     </header>
   </div>
