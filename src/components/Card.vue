@@ -1,6 +1,8 @@
 <script setup>
 import { defineProps } from "vue";
 import { useRouter } from "vue-router";
+import { useQuizStore } from "../store/data.js";
+const { addQuestion } = useQuizStore();
 
 const router = useRouter();
 const { quiz } = defineProps(["quiz"]);
@@ -24,6 +26,12 @@ const navigateToQuiz = () => {
       <p>{{ quiz.questions.length }} questions</p>
     </div>
   </div>
+  <div>
+    <!-- <div class="button">
+      <button @click="() => addQuestion(quiz.id)">Add Question</button>
+    </div> -->
+  </div>
+
 </template>
 
 <style scoped>

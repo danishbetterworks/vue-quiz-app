@@ -1,15 +1,18 @@
 <script setup>
-import quizData from "../data/quiz.json";
 import { ref, watch } from "vue";
+import { storeToRefs } from "pinia";
 import Card from "../components/card.vue";
-const quizes = ref(quizData);
+import { useQuizStore } from "../store/data.js";
+
+const { quizzes, findSearchedTextQuiz } = useQuizStore();
+const quizes = ref(quizzes);
 const searchText = ref("");
 
-const findSearchedTextQuiz = (text) => {
-  return quizData.filter((quiz) =>
-    quiz.name.toLowerCase().includes(text.toLowerCase())
-  );
-};
+// const findSearchedTextQuiz = (text) => {
+//   return quizzes.filter((quiz) =>
+//     quiz.name.toLowerCase().includes(text.toLowerCase())
+//   );
+// };
 /**
  * Filter the quizes based on the search text
  */
